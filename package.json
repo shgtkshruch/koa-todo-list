@@ -1,0 +1,23 @@
+{
+  "name": "koa-todo-list",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shgtkshruch/koa-todo-list.git"
+  },
+  "keywords": [],
+  "author": "shgtkshruch <shgtk.shruch@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shgtkshruch/koa-todo-list/issues"
+  },
+  "homepage": "https://github.com/shgtkshruch/koa-todo-list#readme",
+  "dependencies": {
+    "koa": "^1.1.2"
+  }
+}
