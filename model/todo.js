@@ -3,7 +3,7 @@
 var Mongorito = require('mongorito');
 var Model = Mongorito.Model;
 
-Mongorito.connect('localhost/todo');
+Mongorito.connect(process.env.MONGOLAB_URI || 'localhost/todo');
 
 class Todo extends Model {}
 
