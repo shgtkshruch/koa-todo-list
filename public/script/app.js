@@ -1,15 +1,16 @@
 (function() {
   $('.todo__icon--edit').click(function(e) {
-    var $input, $titleEl;
+    var $input, $titleEl, $todoItem;
     $titleEl = $(this).prev();
+    $todoItem = $(this).parents('.todo__item');
     $titleEl.hide();
     $input = $('<input type="text" />');
     $input.val($titleEl.text());
-    $(this).parents('.todo__item').prepend($input);
+    $todoItem.prepend($input);
     return $input.focusout(function(e) {
       var id, newTitle;
       newTitle = $(this).val();
-      id = $(this).parents('.todo__item').data('id');
+      id = $todoItem.data('id');
       $(this).remove();
       $titleEl.text(newTitle).show();
       return $.ajax({

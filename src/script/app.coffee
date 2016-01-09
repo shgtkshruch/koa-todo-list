@@ -1,16 +1,17 @@
 $ '.todo__icon--edit'
   .click (e) ->
     $titleEl = $(@).prev()
+    $todoItem = $(@).parents('.todo__item')
 
     $titleEl.hide()
 
     $input = $ '<input type="text" />'
     $input.val $titleEl.text()
-    $(@).parents('.todo__item').prepend $input
+    $todoItem.prepend $input
 
     $input.focusout (e) ->
       newTitle = $(@).val()
-      id = $(@).parents('.todo__item').data('id')
+      id = $todoItem.data('id')
 
       $(@).remove()
       $titleEl.text(newTitle).show()
