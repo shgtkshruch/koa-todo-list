@@ -1,8 +1,9 @@
+var session = require('koa-session');
 var route = require('koa-route');
 var views = require('co-views');
 var parse = require('co-body');
 var csrf = require('koa-csrf');
-var session = require('koa-session');
+var model = require('./model/todo');
 var koa = require('koa');
 var app = koa();
 
@@ -14,7 +15,10 @@ csrf(app);
 var render = views(__dirname + '/views', {default: 'jade'});
 
 app.use(route.get('/', function *() {
-  this.body = yield render('index', {authenticated: this.session.authenticated});
+  this.body = yield render('index', {
+    authenticated: this.session.authenticated,
+    todos: yield model.find()
+  });
 }));
 
 app.use(route.get('/login', function *() {
@@ -39,6 +43,13 @@ app.use(route.post('/login', function *() {
 
 app.use(route.get('/logout', function *() {
   this.session.authenticated = null
+  this.status = 303;
+  this.redirect('/');
+}));
+
+app.use(route.post('/todo', function *() {
+  var body = yield parse.form(this);
+  yield model.save(body.title);
   this.status = 303;
   this.redirect('/');
 }));

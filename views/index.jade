@@ -7,4 +7,10 @@ block body
     a(href="/login") Login
   else
     a(href="/logout") Logout
-    h2 Hello authenticated user
+    form(action='/todo' method="POST")
+      input(type="text" name="title" placeholder="todo" required)
+      input(type="submit" value="add")
+
+  ul
+    each todo, i in todos
+      li= todo.attributes.title
