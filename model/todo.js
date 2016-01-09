@@ -22,5 +22,10 @@ module.exports = {
 
   remove: function *(id) {
     return yield Todo.remove({_id: new Mongorito.ObjectID(id)});
+  },
+
+  update: function *(todo) {
+    var todo = new Todo({_id: new Mongorito.ObjectID(todo.id), title: todo.title});
+    yield todo.update()
   }
 }

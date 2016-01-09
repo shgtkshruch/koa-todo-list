@@ -13,11 +13,12 @@ block body
 
   ul.todo
     each todo, i in todos
-      li.todo__item= todo.attributes.title
+      li.todo__item(data-id="#{todo.attributes._id}")
+        span.todo__title= todo.attributes.title
         if authenticated
-          i.fa.fa-edit.todo__icon.todo__icon--edit(data-id="#{todo.attributes._id}")
-          i.fa.fa-trash-o.todo__icon.todo__icon--remove(data-id="#{todo.attributes._id}")
+          i.fa.fa-edit.todo__icon.todo__icon--edit
+          i.fa.fa-trash-o.todo__icon.todo__icon--remove
 
   if authenticated
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
-    script(src="/script/index.js")
+    script(src="/script/app.js")

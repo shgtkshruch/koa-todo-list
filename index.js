@@ -67,4 +67,14 @@ app.use(route.del('/todo', function *() {
   }
 }));
 
+app.use(route.put('/todo', function *() {
+  if (this.session.authenticated) {
+    var body = yield parse(this);
+    yield model.update(body)
+    this.status = 200
+  } else {
+    this.throw(400);
+  }
+}));
+
 app.listen(process.env.PORT||8080);
