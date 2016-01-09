@@ -1,8 +1,14 @@
-doctype html
-html(lang="ja")
-  head
-    meta(charset='UTF-8')
-    title koa todo list
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-  body
-    h1 todo list
+extends layout
+
+block body
+  h1 todo list
+
+  // Login and Logout links
+  if !authenticated
+    a(href="/login") Login
+  else
+    a(href="/logout") Logout
+
+  // todo list form
+  if authenticated
+    h2 Hello authenticated user

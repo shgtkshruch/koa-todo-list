@@ -18,14 +18,17 @@
   },
   "homepage": "https://github.com/shgtkshruch/koa-todo-list#readme",
   "dependencies": {
+    "co-body": "^4.0.0",
     "co-views": "^2.1.0",
     "jade": "^1.11.0",
     "koa": "^1.1.2",
-    "koa-route": "^2.4.2"
+    "koa-route": "^2.4.2",
+    "koa-session": "^3.3.1"
   },
   "devDependencies": {
     "browser-sync": "^2.11.0",
     "gulp": "^3.9.0",
+    "gulp-env": "^0.4.0",
     "gulp-nodemon": "^2.0.6"
   }
 }

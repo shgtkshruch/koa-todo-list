@@ -1,9 +1,15 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var nodemon = require('gulp-nodemon');
+var env = require('gulp-env');
 
 gulp.task('nodemon', function () {
-  return nodemon({
+  env({
+    file: '.env',
+    type: 'ini'
+  });
+
+  nodemon({
     script: 'index.js',
   });
 });
