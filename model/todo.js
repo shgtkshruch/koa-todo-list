@@ -17,6 +17,10 @@ module.exports = {
       title: title
     });
 
-    yield todo.save()
+    yield todo.save();
+  },
+
+  remove: function *(id) {
+    return yield Todo.remove({_id: new Mongorito.ObjectID(id)});
   }
 }

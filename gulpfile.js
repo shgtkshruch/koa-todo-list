@@ -17,7 +17,7 @@ gulp.task('nodemon', function () {
 gulp.task('browser-sync', ['nodemon'], function () {
   browserSync.init({
     proxy: 'http://localhost:8080',
-    files: ['views/**/*'],
+    files: ['views/**/*', 'public/**/*'],
     notify: false,
     browser: 'google chrome canary'
   });

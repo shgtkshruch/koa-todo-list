@@ -1,4 +1,5 @@
 var session = require('koa-session');
+var serve = require('koa-static');
 var route = require('koa-route');
 var views = require('co-views');
 var parse = require('co-body');
@@ -13,6 +14,8 @@ app.use(session(app));
 csrf(app);
 
 var render = views(__dirname + '/views', {default: 'jade'});
+
+app.use(serve('public'));
 
 app.use(route.get('/', function *() {
   this.body = yield render('index', {
@@ -52,6 +55,16 @@ app.use(route.post('/todo', function *() {
   yield model.save(body.title);
   this.status = 303;
   this.redirect('/');
+}));
+
+app.use(route.del('/todo', function *() {
+  if (this.session.authenticated) {
+    var body = yield parse(this);
+    yield model.remove(body.id);
+    this.status = 200;
+  } else {
+    this.throw(400);
+  }
 }));
 
 app.listen(process.env.PORT||8080);
