@@ -20,6 +20,7 @@
   "dependencies": {
     "co-body": "^4.0.0",
     "co-views": "^2.1.0",
+    "gulp-sass": "^2.1.1",
     "jade": "^1.11.0",
     "koa": "^1.1.2",
     "koa-csrf": "^2.4.0",

@@ -1,4 +1,4 @@
-$('.remove').click(function (e) {
+$('.todo__icon--remove').click(function (e) {
   $.ajax({
     url: '/todo',
     method: 'DELETE',

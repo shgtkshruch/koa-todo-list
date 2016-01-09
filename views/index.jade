@@ -11,11 +11,12 @@ block body
       input(type="text" name="title" placeholder="todo" required)
       input(type="submit" value="add")
 
-  ul
+  ul.todo
     each todo, i in todos
-      li= todo.attributes.title
+      li.todo__item= todo.attributes.title
         if authenticated
-          button(data-id="#{todo.attributes._id}").remove remove
+          i.fa.fa-edit.todo__icon.todo__icon--edit(data-id="#{todo.attributes._id}")
+          i.fa.fa-trash-o.todo__icon.todo__icon--remove(data-id="#{todo.attributes._id}")
 
   if authenticated
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
