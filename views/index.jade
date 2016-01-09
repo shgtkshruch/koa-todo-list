@@ -3,12 +3,8 @@ extends layout
 block body
   h1 todo list
 
-  // Login and Logout links
   if !authenticated
     a(href="/login") Login
   else
     a(href="/logout") Logout
-
-  // todo list form
-  if authenticated
     h2 Hello authenticated user
