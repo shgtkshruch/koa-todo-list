@@ -20,6 +20,7 @@
   "dependencies": {
     "co-body": "^4.0.0",
     "co-views": "^2.1.0",
+    "gulp-coffee": "^2.3.1",
     "gulp-sass": "^2.1.1",
     "jade": "^1.11.0",
     "koa": "^1.1.2",
@@ -33,6 +34,7 @@
     "browser-sync": "^2.11.0",
     "gulp": "^3.9.0",
     "gulp-env": "^0.4.0",
-    "gulp-nodemon": "^2.0.6"
+    "gulp-nodemon": "^2.0.6",
+    "gulp-plumber": "^1.0.1"
   }
 }
