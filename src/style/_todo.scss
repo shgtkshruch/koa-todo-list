@@ -1,4 +1,10 @@
 .todo {
+  &__title {
+    &--completion {
+      color: #bbb;
+      text-decoration: line-through;
+    }
+  }
   &__icon {
     margin-left: 5px;
     cursor: pointer;

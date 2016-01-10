@@ -25,7 +25,14 @@ module.exports = {
   },
 
   update: function *(todo) {
-    var todo = new Todo({_id: new Mongorito.ObjectID(todo.id), title: todo.title});
-    yield todo.update()
+    var todoItem = yield Todo.findOne({_id: todo.id});
+    todoItem.set({title: todo.title});
+    yield todoItem.save();
+  },
+
+  changeCompletion: function *(todo) {
+    var todoItem = yield Todo.findOne({_id: todo.id});
+    todoItem.set({completion: todo.completion});
+    yield todoItem.save();
   }
 }

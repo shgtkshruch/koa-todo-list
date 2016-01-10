@@ -32,3 +32,15 @@ $ '.todo__icon--remove'
         id: $(@).parents('.todo__item').data('id')
       success: (data, status, xhr) ->
         window.location.reload()
+
+$ '.todo__title'
+  .click (e) ->
+    completion = !$(@).hasClass('todo__title--completion')
+    $(@).toggleClass('todo__title--completion')
+
+    $.ajax
+      url: '/todo'
+      method: 'PUT'
+      data:
+        id: $(@).parents('.todo__item').data('id')
+        completion: completion

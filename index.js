@@ -69,9 +69,16 @@ app.use(route.del('/todo', function *() {
 
 app.use(route.put('/todo', function *() {
   if (this.session.authenticated) {
-    var body = yield parse(this);
-    yield model.update(body)
-    this.status = 200
+    var todo = yield parse(this);
+
+    if (todo.title) {
+      yield model.update(todo)
+      this.status = 200
+    } else if (todo.completion) {
+      yield model.changeCompletion(todo)
+      this.status = 200
+    }
+
   } else {
     this.throw(400);
   }
