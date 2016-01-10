@@ -47,3 +47,5 @@ gulp.task('default', ['browser-sync'], function () {
   gulp.watch('src/style/**/*.scss', ['sass']);
   gulp.watch('src/script/*.coffee', ['coffee']);
 });
+
+gulp.task('build', ['sass', 'coffee']);
