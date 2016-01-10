@@ -1,0 +1,17 @@
+.loginForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &__input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ddd;
+    margin-right: 15px;
+  }
+  &__submit {
+    border: 1px solid #ddd;
+    background: none;
+    cursor: pointer;
+  }
+}

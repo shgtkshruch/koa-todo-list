@@ -1,11 +1,37 @@
 .todo {
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+  &__item {
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
   &__title {
+    display: inline-block;
+    width: 90%;
+    font-size: 24px;
+    font-weight: 100;
+    word-break: break-all;
+    cursor: pointer;
     &--completion {
       color: #bbb;
       text-decoration: line-through;
     }
   }
+  &__input {
+    width: 85%;
+  }
+  &__icons {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
   &__icon {
+    color: #999;
     margin-left: 5px;
     cursor: pointer;
   }

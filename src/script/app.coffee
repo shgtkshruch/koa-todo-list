@@ -1,12 +1,12 @@
 $ '.todo__icon--edit'
   .click (e) ->
-    $titleEl = $(@).prev()
+    $titleEl = $(@).parent().prev()
     $todoItem = $(@).parents('.todo__item')
 
     $titleEl.hide()
 
     $input = $ '<input type="text" />'
-    $input.val $titleEl.text()
+    $input.addClass('todo__input').val($titleEl.text())
     $todoItem.prepend $input
 
     $input.focusout (e) ->

@@ -1,8 +1,8 @@
 extends layout
 
 block body
-  form(action="/login" method="POST")
+  form.loginForm(action="/login" method="POST")
     input(type="hidden" name="_csrf" value="#{csrf}")
-    input(type="text" name="username" placeholder="username")
-    input(type="password" name="password" placeholder="password")
-    input(type="submit" value="login")
+    input.loginForm__input(type="text" name="username" placeholder="Username")
+    input.loginForm__input(type="password" name="password" placeholder="Password")
+    input.loginForm__submit(type="submit" value="Login")
