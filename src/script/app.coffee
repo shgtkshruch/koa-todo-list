@@ -25,13 +25,13 @@ $ '.todo__icon--edit'
 
 $ '.todo__icon--remove'
   .click (e) ->
+    $(@).parents('.todo__item').remove()
+
     $.ajax
       url: '/todo'
       method: 'DELETE'
       data:
         id: $(@).parents('.todo__item').data('id')
-      success: (data, status, xhr) ->
-        window.location.reload()
 
 $ '.todo__title'
   .click (e) ->

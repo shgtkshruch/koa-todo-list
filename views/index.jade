@@ -14,7 +14,7 @@ block body
   ul.todo
     each todo, i in todos
       li.todo__item(data-id="#{todo.attributes._id}")
-        span.todo__title(class="#{todo.attributes.completion == 'true' ? 'todo__title--completion' : ''}")= todo.attributes.title
+        span.todo__title(class="#{todo.attributes.completion === 'true' ? 'todo__title--completion' : ''}")= todo.attributes.title
         if authenticated
           i.fa.fa-edit.todo__icon.todo__icon--edit
           i.fa.fa-trash-o.todo__icon.todo__icon--remove
