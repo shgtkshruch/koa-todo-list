@@ -5,7 +5,7 @@ var csrf = require('koa-csrf');
 var koa = require('koa');
 var app = koa();
 
-app.keys = ['secret1', 'secret2', 'secret3']
+app.keys = ['secret1', 'secret2', 'secret3'];
 app.use(session(app));
 
 csrf(app);

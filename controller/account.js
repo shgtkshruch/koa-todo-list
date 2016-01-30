@@ -25,7 +25,7 @@ module.exports = {
   },
 
   logout: function *() {
-    this.session.authenticated = null
+    this.session.authenticated = null;
     this.status = 303;
     this.redirect('/');
   }

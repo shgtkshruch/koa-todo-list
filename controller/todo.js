@@ -34,11 +34,11 @@ module.exports = {
       var todo = yield parse(this);
 
       if (todo.title) {
-        yield model.update(todo)
-        this.status = 200
+        yield model.update(todo);
+        this.status = 200;
       } else if (todo.completion) {
-        yield model.changeCompletion(todo)
-        this.status = 200
+        yield model.changeCompletion(todo);
+        this.status = 200;
       }
 
     } else {
